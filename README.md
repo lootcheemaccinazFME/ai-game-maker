@@ -11,7 +11,7 @@ Gemini is optional. Without an API key, the app uses built-in design and game op
 
 ## Build an Android APK
 
-**Prerequisites:** Node.js 22 or later, Android Studio with the Android SDK, and Java 17 or later.
+**Prerequisites:** Node.js 22 or later, Android Studio with the Android SDK, and Java 21 or later.
 
 1. Install dependencies: `npm install`
 2. Build the web app and sync it into Android: `npm run android:sync`
