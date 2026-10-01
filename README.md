@@ -5,8 +5,9 @@
 **Prerequisites:** Node.js
 
 1. Install dependencies: `npm install`
-2. To use Gemini features, put `API_KEY=your-key` in `.env.local`.
-3. Start the app: `npm run dev`
+2. Start the app: `npm run dev`
+
+Gemini is optional. Without an API key, the app uses built-in design and game options and creates a playable tap game. To enable AI-generated options and apps, put `API_KEY=your-key` in `.env.local` before building.
 
 ## Build an Android APK
 
@@ -31,4 +32,4 @@ The app uses online services for styling, fonts, and Gemini AI features, so it n
 
 ### Gemini API key
 
-The app reads `API_KEY` at build time. Any key included in an APK can be extracted, so do not distribute an APK containing a private Gemini key. Use a backend proxy for a publicly distributed app.
+The app reads `API_KEY` at build time. Any key included in an APK can be extracted, so do not distribute an APK containing a private Gemini key. The app remains usable without a key; use a backend proxy for AI features in a publicly distributed app.
