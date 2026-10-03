@@ -1,0 +1,33 @@
+name: Build Mutant Midnight APK
+
+on:
+  push:
+    paths:
+      - "mutant-midnight/android/**"
+      - ".github/workflows/build-mutant-midnight.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-apk:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: mutant-midnight/android
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: "8.9"
+      - run: gradle :app:assembleDebug
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mutant-midnight-debug-apk
+          path: mutant-midnight/android/app/build/outputs/apk/debug/app-debug.apk
+          if-no-files-found: error
